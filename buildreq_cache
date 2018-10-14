@@ -1,0 +1,4 @@
+0.05
+perl(Data::Munge)
+perl(Test::Fatal)
+perl(Try::Tiny)
