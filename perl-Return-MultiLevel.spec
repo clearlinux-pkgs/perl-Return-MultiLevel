@@ -4,11 +4,11 @@
 #
 Name     : perl-Return-MultiLevel
 Version  : 0.05
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/M/MA/MAUKE/Return-MultiLevel-0.05.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MA/MAUKE/Return-MultiLevel-0.05.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libr/libreturn-multilevel-perl/libreturn-multilevel-perl_0.05-1.debian.tar.xz
-Summary  : 'return across multiple call levels'
+Summary  : return across multiple call levels
 Group    : Development/Tools
 License  : Artistic-1.0-Perl
 BuildRequires : buildreq-cpan
@@ -27,6 +27,7 @@ To download and install this module, use your favorite CPAN client, e.g.
 Summary: dev components for the perl-Return-MultiLevel package.
 Group: Development
 Provides: perl-Return-MultiLevel-devel = %{version}-%{release}
+Requires: perl-Return-MultiLevel = %{version}-%{release}
 
 %description dev
 dev components for the perl-Return-MultiLevel package.
@@ -37,7 +38,7 @@ dev components for the perl-Return-MultiLevel package.
 cd ..
 %setup -q -T -D -n Return-MultiLevel-0.05 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Return-MultiLevel-0.05/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Return-MultiLevel-0.05/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
