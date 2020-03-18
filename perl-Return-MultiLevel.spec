@@ -4,7 +4,7 @@
 #
 Name     : perl-Return-MultiLevel
 Version  : 0.05
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/M/MA/MAUKE/Return-MultiLevel-0.05.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MA/MAUKE/Return-MultiLevel-0.05.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libr/libreturn-multilevel-perl/libreturn-multilevel-perl_0.05-1.debian.tar.xz
@@ -83,7 +83,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Return-MultiLevel
-cp %{_builddir}/Return-MultiLevel-0.05/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Return-MultiLevel/b2c2c7c0712e90307a37bf9c3da33f070e00938a
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-Return-MultiLevel/b2c2c7c0712e90307a37bf9c3da33f070e00938a
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -107,4 +107,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Return/MultiLevel.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Return/MultiLevel.pm
