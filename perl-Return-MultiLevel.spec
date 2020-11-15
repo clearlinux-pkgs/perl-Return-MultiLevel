@@ -4,10 +4,10 @@
 #
 Name     : perl-Return-MultiLevel
 Version  : 0.05
-Release  : 14
+Release  : 15
 URL      : https://cpan.metacpan.org/authors/id/M/MA/MAUKE/Return-MultiLevel-0.05.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MA/MAUKE/Return-MultiLevel-0.05.tar.gz
-Source1  : http://http.debian.net/debian/pool/main/libr/libreturn-multilevel-perl/libreturn-multilevel-perl_0.05-1.debian.tar.xz
+Source1  : https://mirrors.kernel.org/debian/pool/main/libr/libreturn-multilevel-perl/libreturn-multilevel-perl_0.05-1.debian.tar.xz
 Summary  : 'return across multiple call levels'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
@@ -17,6 +17,7 @@ BuildRequires : buildreq-cpan
 BuildRequires : perl(Data::Munge)
 BuildRequires : perl(Test::Fatal)
 BuildRequires : perl(Try::Tiny)
+Patch1: fix-latest-test-fatal.patch
 
 %description
 NAME
@@ -59,6 +60,7 @@ tar xf %{_sourcedir}/libreturn-multilevel-perl_0.05-1.debian.tar.xz
 cd %{_builddir}/Return-MultiLevel-0.05
 mkdir -p deblicense/
 cp -r %{_builddir}/debian/* %{_builddir}/Return-MultiLevel-0.05/deblicense/
+%patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/

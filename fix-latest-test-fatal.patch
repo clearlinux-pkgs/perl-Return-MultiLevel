@@ -1,0 +1,27 @@
+From 3e38727420e9085a88670f3929e5b62c8fcaa6b0 Mon Sep 17 00:00:00 2001
+From: Graham Ollis <plicease@cpan.org>
+Date: Sun, 25 Oct 2020 07:04:57 -0600
+Subject: [PATCH] workaround for rt#133221
+
+Test::Fatal 0.015, 0.016 set $Carp::MaxArgNums to -1.
+This patch sets it to the default value (the value used in 0.014 and earlier) of 8.
+
+Upstream-Status: Pending
+Reference: https://github.com/mauke/Return-MultiLevel/pull/2
+---
+ t/debug.t | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/t/debug.t b/t/debug.t
+index f992358..f855e41 100644
+--- a/t/debug.t
++++ b/t/debug.t
+@@ -25,7 +25,7 @@ sub baz {
+ }
+ 
+ my $ret = bar;
+-my $exc = exception { baz $ret, 'ducks'; };
++my $exc = exception { local $Carp::MaxArgNums = 8; baz $ret, 'ducks'; };
+ 
+ like $exc, qr{
+     .* \bwith_return\b .* \Q${\__FILE__}\E .* \b 14 \b .* \n
