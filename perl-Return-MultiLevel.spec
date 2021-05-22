@@ -4,7 +4,7 @@
 #
 Name     : perl-Return-MultiLevel
 Version  : 0.05
-Release  : 18
+Release  : 19
 URL      : https://cpan.metacpan.org/authors/id/M/MA/MAUKE/Return-MultiLevel-0.05.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MA/MAUKE/Return-MultiLevel-0.05.tar.gz
 Source1  : https://mirrors.kernel.org/debian/pool/main/libr/libreturn-multilevel-perl/libreturn-multilevel-perl_0.05-1.debian.tar.xz
